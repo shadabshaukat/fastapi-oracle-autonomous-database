@@ -4,6 +4,7 @@ Set the DB_USER, DB_PASSWORD & DB_DSN parameters in the script based on your Aut
 
 Install the Python3 packages, this has been tested on Python 3.11
 
+pip3 install -r requirements.txt
 
 uvicorn fapi:app --host 127.0.0.1 --port 8001
 
