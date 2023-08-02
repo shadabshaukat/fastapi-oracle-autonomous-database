@@ -1,17 +1,53 @@
-# fastapi-oracle-autonomous-database
+# FastAPI Oracle Database Example
 
-Set the DB_USER, DB_PASSWORD & DB_DSN parameters in the script based on your Autonomous DB
+This is an example FastAPI application that interacts with an Oracle database.
 
-Install the Python3 packages, this has been tested on Python 3.11
+## Prerequisites
 
-pip3 install -r requirements.txt
+- Python 3.11+
+- Oracle database connection details
 
-uvicorn fapi:app --host 127.0.0.1 --port 8001
+## Installation
 
-POST 
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/fastapi-oracle-example.git
+   cd fastapi-oracle-example
+   ```
 
+2. Install the required packages using pip:
+
+   ``` 
+   pip3 install -r requirements.txt
+   ```
+
+3. Configuration
+
+    Open fapi.py and replace the following placeholders with your Oracle database connection details:
+
+   ```
+        DB_USER
+        DB_PASSWORD
+        DB_DSN
+   ```
+
+4. Running the FastAPI App
+
+To run the FastAPI app, use the following command:
+
+```
+uvicorn main:app --host 0.0.0.0 --port 8000
+```
+
+The app will be accessible at http://localhost:8000 or http://YOUR_LOCAL_IP:8000
+
+5. API Endpoints
+
+Create an order:
+
+```
 curl -X 'POST' \
-  'http://localhost:8001/orders/' \
+  'http://localhost:8000/orders/' \
   -H 'accept: application/json' \
   -H 'Content-Type: application/json' \
   -d '{
@@ -19,9 +55,12 @@ curl -X 'POST' \
     "product_name": "Example Product",
     "quantity": 10
   }'
+```
 
-GET
+Retrieve an order by ID:
 
+```
 curl -X 'GET' \
-  'http://localhost:8001/orders/1' \
+  'http://localhost:8000/orders/1' \
   -H 'accept: application/json'
+```
